@@ -1,0 +1,161 @@
+@font-face {
+  font-family: GTPT;
+   src: url("//db.onlinewebfonts.com/t/c31b8e03018828378e7e35add49c2244.eot"); src: url("//db.onlinewebfonts.com/t/c31b8e03018828378e7e35add49c2244.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/c31b8e03018828378e7e35add49c2244.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/c31b8e03018828378e7e35add49c2244.woff") format("woff"), url("//db.onlinewebfonts.com/t/c31b8e03018828378e7e35add49c2244.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/c31b8e03018828378e7e35add49c2244.svg#GT Eesti Pro Text") format("svg");
+}
+
+body {
+  margin: 0;
+  font-family: GTPT;
+  overflow: hidden;
+}
+
+input {
+  border: none;
+  background-color: rgb(255, 238, 0);
+  font-family: GTPT;
+}
+
+.shlf {
+  min-height: 100%;
+  display: flex;
+}
+
+.shlf-wrapper {
+  background-color: rgb(255, 238, 0);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  align-self: flex-end;
+}
+
+.shlf-top-button {
+  background-color: #fff;
+  border: 1px solid #181818;
+  border-radius: 96px;
+  font-size: 18px;
+  text-align: center;
+  padding: 7px 20px;
+  font-weight: 500;
+  float: right;
+}
+
+.shlf-top-button:hover {
+  cursor: pointer;
+  background-color: rgb(255, 238, 0);
+}
+
+.shlf-top-button-holder {
+  width: 100%;
+  display: inline-block;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.shlf-main-text {
+  font-size: 16px;
+  line-heigh: 1.4em;
+  margin: 20px 0;
+}
+
+.shlf-money-picker {
+  opacity: .3;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.shlf-money-picker:hover {
+  cursor: pointer;
+}
+
+.shlf-money-picker--active {
+  opacity: 1;
+}
+
+.shlf-paytype-picker {
+  opacity: .3;
+  font-size: 16px;
+}
+
+.shlf-paytype-picker:hover {
+  cursor: pointer;
+}
+
+.shlf-paytype-picker--active {
+  opacity: 1;
+}
+
+.shlf-help-button {
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.shlf-help-button:hover {
+  cursor: pointer;
+}
+
+hr {
+  color: #181818;
+  background: #181818;
+}
+
+.shlf-wrapper-bottom{
+  padding: 0;
+}
+
+.shlf-hr {
+  width: 100%;
+  height: 1px;
+  background: #181818;
+}
+
+.shlf-paytype-picker-holder {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.shlf-money-picker-holder {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.shlf-bottom-text {
+  color: #181818;
+  font-size: 9px;
+  padding-top: 10px;
+}
+
+a {
+  text-decoration: underline;
+  color: #181818
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.shlf-bottom-text {
+  margin-bottom: 15px;
+  font-size: 9px;
+}
+
+.shlf-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  /*margin-top: 30%;*/
+}
+
+.shlf-wrapper-top,
+.shlf-wrapper-center {
+  padding: 0 20px;
+}
+
+.shlf-paytype-picker--r {
+  margin-right: 20px;
+}
+
+.shlf {
+  overflow: hidden;  
+}

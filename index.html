@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>Document</title>
+</head>
+<body>
+  <main class="shlf">
+    <section class="shlf-wrapper">
+      <article class="shlf-wrapper-block">
+        <p class="shlf-main-text">Вы можете оформить разовый платеж, выбрав сумму ниже, или подписаться на ежемесячные пожертвования – это позволит фонду стабильно планировать будущие проекты.</p>
+      </article>
+      <article class="shlf-wrapper-block">
+        <form class="shlf-money-picker-holder shlf-money-picker-fixed-pay">
+          <button type="button" class="shlf-money-picker shlf-money-picker--active">500<span>₽</span></button>
+          <button type="button" class="shlf-money-picker">1500<span>₽</span></button>
+          <button type="button" class="shlf-money-picker">2500<span>₽</span></button>
+        </form>
+        <form class="shlf-money-picker-holder shlf-money-picker-any-pay">
+          <input class="shlf-money-picker" placeholder="Другая сумма">
+        </form>
+        <form class="shlf-paytype-picker-holder">
+          <button type="button" class="shlf-paytype-picker shlf-paytype-picker--active">Ежемесячно</button>
+          <button type="button" class="shlf-paytype-picker">Единовременно</button>
+        </form>
+        <p class="shlf-text shlf-unsubscribe-text">Вы всегда сможете <a href="https://my.cloudpayments.ru/ru/unsubscribe" target="_blank">отписаться</a> от ежемесячного пожертвования. Если у вас возникли трудности с платежом или остались вопросы, напишите нам на <a href="mailto:join@shalash.academy">join@shalash.academy</a></p>
+      </article>
+      <article class="shlf-wrapper-block">
+        <button type="button" class="shlf-help-button animate__animated animate__bounce" onclick="pay()">помочь</button>
+        <p class="shlf-text shlf-conditions-text">Я согласен с <a href="https://drive.google.com/file/d/19GUNupwkQxLKr-MnbKvBKpjw_FtDqOzC/view" target="_blank">условиями оферты</a>. Нажимая «Помочь», вы даёте <a href="https://drive.google.com/file/d/1YaTKQSP7AyXdqK93wcZNeijkLSDUMdvu/view" target="_blank">согласие на обработку персональных данных</a></p>
+      </article>
+    </section>
+  </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+<script>var data = {};
+data.cloudPayments = {recurrent: { interval: 'Month', period: 1}};
+
+var amount;
+
+$('.shlf-money-picker').click(function(){
+$('.shlf-money-picker').removeClass('shlf-money-picker--active');
+$(this).addClass('shlf-money-picker--active');
+})
+
+$('.shlf-paytype-picker').click(function(){
+$('.shlf-paytype-picker').removeClass('shlf-paytype-picker--active');
+$(this).addClass('shlf-paytype-picker--active');
+
+if ( $(this).text() === "Ежемесячно" ) {
+data.cloudPayments = {recurrent: { interval: 'Month', period: 1}};
+} else {
+data.cloudPayments = {};
+}
+})  
+
+this.pay = function () {
+
+if ( $('.shlf-money-picker--active').attr("placeholder") ) {
+amount = parseInt($('.shlf-money-picker--active').val())
+console.log(amount)
+} else {
+amount = parseInt($('.shlf-money-picker--active').text())
+}
+
+var widget = new cp.CloudPayments();
+widget.charge({ // options
+    publicId: 'pk_9518a6238804406edf0f1b39a27d2',  //id из личного кабинета
+    description: '', //назначение
+    amount: amount, //сумма
+    currency: 'RUB', //валюта
+    invoiceId: '1234567', //номер заказа  (необязательно)
+    accountId: '', //идентификатор плательщика (необязательно)
+    skin: "mini", //дизайн виджета
+    data: data
+},
+function (options) { // success
+    //действие при успешной оплате
+},
+function (reason, options) { // fail
+    //действие при неуспешной оплате
+});
+};</script>
+</body>
+</html>
