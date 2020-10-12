@@ -5,25 +5,42 @@
 
 @import url('./fonts/roboto/roboto.css');
 
+@keyframes jump {
+  25% {
+    transform: translateY(-20px) rotate(6deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
 body {
   margin: 0;
-  font-family: GTPT;
-  /* font-family: Roboto; */
+  /* font-family: GTPT; */
+  font-family: Roboto;
   overflow: hidden;
 }
 
-button {
-  border: 0;
-  font-family: GTPT;
-  /* font-family: Roboto; */
+button, button:active, button:focus {
+  border: none;
+  outline: none;
+  decoration: none;
+  /* font-family: GTPT; */
+  font-family: Roboto;
   background-color: transparent;
 }
 
 input {
   border: none;
   background-color: transparent;
-  font-family: GTPT;
-  /* font-family: Roboto; */
+  /* font-family: GTPT; */
+  font-family: Roboto;
 }
 
 a {
@@ -37,18 +54,19 @@ a:hover {
 
 .shlf {
   background-color: rgb(255, 238, 0);
-  /* width: 500px; */
   width: 100%;
   height: 100vh;
   padding-left: 5%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .shlf-wrapper {
   width: 83%;
-  height: calc(100vh - 10vw);
+  margin-bottom: 6%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -66,14 +84,16 @@ a:hover {
 }
 
 .shlf-main-text {
-  font-size: 22px;
+  /* font-size: 1.4rem; */
+  font-size: 4.5vw;
   line-height: 1.4em;
-  margin: 120px 0 0;
+  /* margin: 120px 0 0; */
 }
 
 .shlf-money-picker {
   opacity: .3;
-  font-size: 35px;
+  /* font-size: 35px; */
+  font-size: 7.2vw;
   font-weight: 400;
 }
 
@@ -93,7 +113,8 @@ a:hover {
   margin: 0;
   padding: 0;
   opacity: .3;
-  font-size: 22px;
+  /* font-size: 22px; */
+  font-size: 4.4vw;
 }
 .shlf-paytype-picker:last-of-type {
   margin-right: 20px;
@@ -110,9 +131,14 @@ a:hover {
 .shlf-help-button {
   margin: 0 0 10px;
   padding: 0;
-  font-size: 37px;
+  font-size: 7.6vw;
+  /* font-size: 37px; */
   text-transform: uppercase;
   align-self: flex-start;
+}
+
+.shlf-help-button-animated {
+  animation: jump 0.6s ease 0s forwards;
 }
 
 .shlf-help-button:hover {
@@ -147,7 +173,8 @@ a:hover {
 .shlf-text {
   margin: 0;
   color: #181818;
-  font-size: 14px;
+  font-size: 2.8vw;
+  /* font-size: 14px; */
 }
 
 .shlf-unsubscribe-text {
@@ -162,13 +189,84 @@ a:hover {
   border-top: 3px solid #181818;
 }
 
+
+
+
+
 /* .shlf-hr {
   width: 100%;
   height: 1px;
   background: #181818;
 } */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
+  .shlf {
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .shlf-wrapper {
+    width: 90%;
+    height: 100%;
+  }
+
+  .shlf-main-text {
+    font-size: 15px;
+    line-height: 1.39em;
+    margin: 44px 0 35px;
+  }
+
+  .shlf-money-picker {
+    font-size: 26px;
+    padding-right: 10px;
+    padding-bottom: 11px;
+  }
+
+  .shlf-money-picker:last-of-type {
+    margin-right: 0;
+  }
+
+  .shlf-paytype-picker {
+    font-size: 15px;
+    line-height: 1.39em;
+  }
+
+  .shlf-help-button {
+    margin: 71px 0 10px;
+    font-size: 26px;
+  }
+
+  .shlf-paytype-picker-holder {
+    height: 60px;
+  }
+
+  .shlf-money-picker-holder {
+    height: auto;
+  }
+
+  .shlf-money-picker-fixed-pay {
+    border-top: 2px solid #181818;
+    padding-top: 16px;
+  }
   
+  .shlf-money-picker-any-pay {
+    border-bottom: 2px solid #181818;
+  }
+
+  .shlf-text {
+    font-size: 9px;
+    line-height: 12px;
+  }
+
+  .shlf-unsubscribe-text {
+    border-top: 2px solid #181818;
+  }
+
+  .shlf-conditions-text {
+    width: 95%;
+    padding: 11px 0 44px;
+    border-top: 2px solid #181818;
+  }  
 }

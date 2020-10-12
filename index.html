@@ -28,7 +28,7 @@
         <p class="shlf-text shlf-unsubscribe-text">Вы всегда сможете <a href="https://my.cloudpayments.ru/ru/unsubscribe" target="_blank">отписаться</a> от ежемесячного пожертвования. Если у вас возникли трудности с платежом или остались вопросы, напишите нам на <a href="mailto:join@shalash.academy">join@shalash.academy</a></p>
       </article>
       <article class="shlf-wrapper-block">
-        <button type="button" class="shlf-help-button animate__animated animate__bounce" onclick="pay()">помочь</button>
+        <button type="button" class="shlf-help-button" onclick="pay()">помочь</button>
         <p class="shlf-text shlf-conditions-text">Я согласен с <a href="https://drive.google.com/file/d/19GUNupwkQxLKr-MnbKvBKpjw_FtDqOzC/view" target="_blank">условиями оферты</a>. Нажимая «Помочь», вы даёте <a href="https://drive.google.com/file/d/1YaTKQSP7AyXdqK93wcZNeijkLSDUMdvu/view" target="_blank">согласие на обработку персональных данных</a></p>
       </article>
     </section>
@@ -83,5 +83,17 @@ function (reason, options) { // fail
     //действие при неуспешной оплате
 });
 };</script>
+<script>
+  const animateButton = document.querySelector('.shlf-help-button');
+  const animationSwitcher = () => {
+    animateButton.classList.toggle('shlf-help-button-animated');
+  };
+  setTimeout(() => {
+    animationSwitcher();
+    setInterval(() => {
+    animationSwitcher();
+  }, 4000);
+  }, 3000);
+</script>
 </body>
 </html>
