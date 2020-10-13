@@ -19,7 +19,7 @@
           <button type="button" class="shlf-money-picker">2500<span>₽</span></button>
         </form>
         <form class="shlf-money-picker-holder shlf-money-picker-any-pay">
-          <input class="shlf-money-picker" placeholder="Другая сумма">
+          <input class="shlf-money-picker shlf-money-picker-input" placeholder="Другая сумма">
         </form>
         <form class="shlf-paytype-picker-holder">
           <button type="button" class="shlf-paytype-picker shlf-paytype-picker--active">Ежемесячно</button>
@@ -54,7 +54,7 @@ data.cloudPayments = {recurrent: { interval: 'Month', period: 1}};
 } else {
 data.cloudPayments = {};
 }
-})  
+})
 
 this.pay = function () {
 
