@@ -172,7 +172,7 @@ button {
 .donate-widget__paytype-picker:hover {
   cursor: pointer;
 }
-/
+
 .donate-widget__paytype-picker_active {
   opacity: 1;
 }
