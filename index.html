@@ -7,93 +7,188 @@
   <title>Document</title>
 </head>
 <body>
-  <main class="shlf">
-    <section class="shlf-wrapper">
-      <article class="shlf-wrapper-block">
-        <p class="shlf-main-text">Вы можете оформить разовый платеж, выбрав сумму ниже, или подписаться на ежемесячные пожертвования – это позволит фонду стабильно планировать будущие проекты.</p>
-      </article>
-      <article class="shlf-wrapper-block">
-        <form class="shlf-money-picker-holder shlf-money-picker-fixed-pay">
-          <button type="button" class="shlf-money-picker shlf-money-picker--active">500<span>₽</span></button>
-          <button type="button" class="shlf-money-picker">1500<span>₽</span></button>
-          <button type="button" class="shlf-money-picker">2500<span>₽</span></button>
-        </form>
-        <form class="shlf-money-picker-holder shlf-money-picker-any-pay">
-          <input class="shlf-money-picker shlf-money-picker-input" placeholder="Другая сумма">
-        </form>
-        <form class="shlf-paytype-picker-holder">
-          <button type="button" class="shlf-paytype-picker shlf-paytype-picker--active">Ежемесячно</button>
-          <button type="button" class="shlf-paytype-picker">Единовременно</button>
-        </form>
-        <p class="shlf-text shlf-unsubscribe-text">Вы всегда сможете <a href="https://my.cloudpayments.ru/ru/unsubscribe" target="_blank">отписаться</a> от ежемесячного пожертвования. Если у вас возникли трудности с платежом или остались вопросы, напишите нам на <a href="mailto:join@shalash.academy">join@shalash.academy</a></p>
-      </article>
-      <article class="shlf-wrapper-block">
-        <button type="button" class="shlf-help-button" onclick="pay()">помочь</button>
-        <p class="shlf-text shlf-conditions-text">Я согласен с <a href="https://drive.google.com/file/d/19GUNupwkQxLKr-MnbKvBKpjw_FtDqOzC/view" target="_blank">условиями оферты</a>. Нажимая «Помочь», вы даёте <a href="https://drive.google.com/file/d/1YaTKQSP7AyXdqK93wcZNeijkLSDUMdvu/view" target="_blank">согласие на обработку персональных данных</a></p>
-      </article>
-    </section>
+  <main class="donate-widget" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+    <form class="donate-widget__wrapper">
+      <p class="donate-widget__offer donate-widget__narrow">
+        Вы можете оформить разовый платеж, выбрав сумму ниже, или подписаться на ежемесячные 
+        пожертвования – это позволит фонду стабильно планировать будущие проекты.
+      </p>
+      <section class="donate-widget__choose">
+        <input class="donate-widget__email donate-widget__input donate-widget__narrow" 
+                 placeholder="Email" 
+                 type="email"
+                 required>
+        <div class="donate-widget__sum-picker-wrapper">
+          <div class="donate-widget__sum-picker-holder">
+            <button class="donate-widget__sum-picker donate-widget__default-sum donate-widget__sum-picker_active">
+              500 ₽
+            </button>
+            <button class="donate-widget__sum-picker donate-widget__default-sum">
+              1500 ₽
+            </button>
+            <button class="donate-widget__sum-picker donate-widget__default-sum">
+              2500 ₽
+            </button>
+          </div>
+          <input class="donate-widget__sum-picker donate-widget__input donate-widget__narrow" 
+                 placeholder="Другая сумма" 
+                 type="number">
+        </div>
+        <div class="donate-widget__paytype-picker-holder">
+          <button class="donate-widget__paytype-picker periodical donate-widget__paytype-picker_active">
+            Ежемесячно
+          </button>
+          <button class="donate-widget__paytype-picker">
+            Единовременно
+          </button>
+        </div>
+        <p class="donate-widget__unsubscribe">
+          Вы всегда сможете 
+          <a class="donate-widget__link" 
+             href="https://my.cloudpayments.ru/ru/unsubscribe" 
+             target="_blank">
+            отписаться
+          </a>
+          от ежемесячного пожертвования. 
+          Если у вас возникли трудности с платежом или остались вопросы, напишите нам на 
+          <a class="donate-widget__link" 
+             href="mailto:join@shalash.academy">
+            join@shalash.academy
+          </a>
+        </p>
+      </section>
+      <section class="donate-widget__pay donate-widget__narrow">
+        <button class="donate-widget__pay-btn">помочь</button>
+        <p class="donate-widget__agree">
+          Я согласен с 
+          <a class="donate-widget__link" 
+             href="https://drive.google.com/file/d/19GUNupwkQxLKr-MnbKvBKpjw_FtDqOzC/view" 
+             target="_blank">
+            условиями оферты
+          </a>. 
+          Нажимая «Помочь», вы даёте 
+          <a class="donate-widget__link" 
+             href="https://drive.google.com/file/d/1YaTKQSP7AyXdqK93wcZNeijkLSDUMdvu/view" 
+             target="_blank">
+            согласие на обработку персональных данных
+          </a>
+        </p>
+      </section>
+    </form>
   </main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
-<script>var data = {};
-data.cloudPayments = {recurrent: { interval: 'Month', period: 1}};
-
-var amount;
-
-$('.shlf-money-picker').click(function(){
-$('.shlf-money-picker').removeClass('shlf-money-picker--active');
-$(this).addClass('shlf-money-picker--active');
-})
-
-$('.shlf-paytype-picker').click(function(){
-$('.shlf-paytype-picker').removeClass('shlf-paytype-picker--active');
-$(this).addClass('shlf-paytype-picker--active');
-
-if ( $(this).text() === "Ежемесячно" ) {
-data.cloudPayments = {recurrent: { interval: 'Month', period: 1}};
-} else {
-data.cloudPayments = {};
-}
-})
-
-this.pay = function () {
-
-if ( $('.shlf-money-picker--active').attr("placeholder") ) {
-amount = parseInt($('.shlf-money-picker--active').val())
-console.log(amount)
-} else {
-amount = parseInt($('.shlf-money-picker--active').text())
-}
-
-var widget = new cp.CloudPayments();
-widget.charge({ // options
-    publicId: 'pk_9518a6238804406edf0f1b39a27d2',  //id из личного кабинета
-    description: '', //назначение
-    amount: amount, //сумма
-    currency: 'RUB', //валюта
-    invoiceId: '1234567', //номер заказа  (необязательно)
-    accountId: '', //идентификатор плательщика (необязательно)
-    skin: "mini", //дизайн виджета
-    data: data
-},
-function (options) { // success
-    //действие при успешной оплате
-},
-function (reason, options) { // fail
-    //действие при неуспешной оплате
-});
-};</script>
-<script>
-  const animateButton = document.querySelector('.shlf-help-button');
-  const animationSwitcher = () => {
-    animateButton.classList.toggle('shlf-help-button-animated');
-  };
-  setTimeout(() => {
-    animationSwitcher();
-    setInterval(() => {
-    animationSwitcher();
-  }, 4000);
-  }, 3000);
-</script>
-</body>
-</html>
+  <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+  <script>
+    let monthly = true;
+    const sumInputElement = document.querySelector('.donate-widget__sum-picker.donate-widget__input');
+    const emailInputElement = document.querySelector('.donate-widget__email');
+    const sumPickers = Array.from(document.querySelectorAll('.donate-widget__sum-picker'));
+    const paytypePickers = Array.from(document.querySelectorAll('.donate-widget__paytype-picker'));
+    const animateButton = document.querySelector('.donate-widget__pay-btn');
+  
+    const handleSumPickerClick = function() {
+      sumPickers.forEach(function(elem){
+        elem.classList.remove('donate-widget__sum-picker_active');
+      })
+      this.classList.add('donate-widget__sum-picker_active');
+  
+      if (this.getAttribute('placeholder')) {
+        sumInputElement.required = true;
+      } else {
+        sumInputElement.required = false;
+        sumInputElement.value = '';
+      }
+    }
+  
+    const handlePaytypePickerClick = function() {
+      paytypePickers.forEach(function(elem){
+        elem.classList.remove('donate-widget__paytype-picker_active');
+      })
+      this.classList.add('donate-widget__paytype-picker_active');
+  
+      if ( this.classList.contains('periodical') ) {
+      monthly = true;
+      emailInputElement.required = true;
+    } else {
+      monthly = false;
+      emailInputElement.required = false;
+    }
+    }
+  
+    const customFormReset = () => {
+      sumPickers.forEach((elem, i) => {
+        if (i === 0) {
+          elem.classList.add('donate-widget__sum-picker_active');
+        } else {
+          elem.classList.remove('donate-widget__sum-picker_active');
+        }
+      })
+  
+      sumInputElement.required = false;
+  
+      paytypePickers.forEach((elem, i) => {
+        if (i === 0) {
+          elem.classList.add('donate-widget__paytype-picker_active');
+        } else {
+          elem.classList.remove('donate-widget__paytype-picker_active');
+        }
+      });
+  
+      sumInputElement.value = '';
+      emailInputElement.value = '';
+      monthly = true;
+    }
+  
+    const pay = function () {
+      const email = emailInputElement.value;
+      const activeSumPickerElement = document.querySelector('.donate-widget__sum-picker_active');
+  
+      const amount = activeSumPickerElement.getAttribute('placeholder') 
+        ? parseInt(activeSumPickerElement.value)
+        : parseInt(activeSumPickerElement.textContent);
+  
+      const data = {};
+  
+      data.cloudPayments = monthly
+      ? { recurrent: { interval: 'Month', period: 1 } }
+      : {};
+  
+      const widget = new cp.CloudPayments();
+  
+      widget.charge({ // options
+        publicId: 'pk_9518a6238804406edf0f1b39a27d2',  //id из личного кабинета
+        description: 'Пожертвование в фонд "Шалаш"',
+        amount: amount, //сумма
+        currency: 'RUB', //валюта
+        skin: "mini", //дизайн виджета
+        accountId: email,
+        data: data,  
+      });
+    };
+  
+    sumPickers.forEach((elem) => {
+      elem.addEventListener('click', handleSumPickerClick);
+    });
+    paytypePickers.forEach((elem) => {
+      elem.addEventListener('click', handlePaytypePickerClick);
+    });
+  
+    document.querySelector('.donate-widget__wrapper').addEventListener('submit', (e) => {
+      e.preventDefault();
+      pay();
+      setTimeout(() => { 
+        e.target.reset();
+        customFormReset();
+      }, 2000);
+    });
+  
+    const animationSwitcher = () => {
+      animateButton.classList.toggle('bounce');
+    };
+    setTimeout(() => {
+      animationSwitcher();
+      setInterval(() => {
+      animationSwitcher();
+    }, 4000);
+    }, 3000);
+  
+  </script>
