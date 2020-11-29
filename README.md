@@ -19,4 +19,4 @@ Project result is avaliable [here](https://readymag.com/sergeynugaev/2258285/)
 ## Contributors
 
 * [Максим Коновалов](https://github.com/Konovaly4/)
-* [Ольга Альбуква]()
+* [Ольга Альбуква](https://github.com/oalbukova)
